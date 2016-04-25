@@ -36,9 +36,8 @@ public class DataSource {
         if (rs.getArray("keywords") != null) {
           kws = (String[]) rs.getArray("keywords").getArray();
         }
-        for(Integer topic: (Integer[])rs.getArray("specialty_ids").getArray()) {
-          res.add(new Article(id, title, abs, kws, topic));
-        }
+        Integer[] specs = (Integer[])rs.getArray("specialty_ids").getArray();
+        res.add(new Article(id, title, abs, kws, specs));
       }
     } catch (SQLException e) {
       e.printStackTrace();

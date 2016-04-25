@@ -13,14 +13,14 @@ public class Article {
   public String abs;
   public String[] abst;
   public String[] absts;
-  public Integer spec;
+  public Integer[] specs;
   public String[] kws;
   public String[] kwss;
 //  public String body = null;
 //  public String[] bodyt;
 //  public String[] bodyts;
 
-  public Article(Integer id, String title, String abs, String[] kws, Integer topic) {
+  public Article(Integer id, String title, String abs, String[] kws, Integer[] topic) {
     this.id = id;
     this.title = title;
     titlet = Stopwords.filter(Tokenizer.INSTANCE.tokenize(title.toLowerCase()));
@@ -35,7 +35,7 @@ public class Article {
     this.kws = Stopwords.filter(
         Arrays.stream(kws).map(String::toLowerCase).toArray(String[]::new));
     this.kwss = Stopwords.filter(stem(this.kws));
-    spec = topic;
+    specs = topic;
 //    body = text;
 //    bodyt = Tokenizer.INSTANCE.tokenize(text.toLowerCase());
  //   bodyts = stem(bodyt);
